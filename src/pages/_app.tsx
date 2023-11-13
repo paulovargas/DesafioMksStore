@@ -1,6 +1,14 @@
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
+// pages/_app.tsx
+import { AppProps } from 'next/app';
+import '../styles/globals.css';
+import { ReactQueryProvider } from '../react-query';
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <ReactQueryProvider>
+      <Component {...pageProps} />
+    </ReactQueryProvider>
+  );
 }
+
+export default MyApp;
